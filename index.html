@@ -29,11 +29,40 @@
             margin-bottom: 1rem;
         }
 
-        .list {
+        .list, .group-list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
             justify-content: center;
+        }
+
+        .list {
+            gap: 1rem;
+        }
+
+        .group-list {
+            gap: 0.5rem;
+        }
+
+        .group-name {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .group-name::before,
+        .group-name::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #000;
+        }
+
+        .group-name:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .group-name:not(:empty)::after {
+            margin-left: .5em;
         }
 
         .link {
@@ -51,13 +80,28 @@
 <div class="content">
     <h1 class="header">Полезные ссылки</h1>
     <div class="list">
-            <a class="link" href="/schedule" target="_blank">Расписание</a>
-            <a class="link" href="/wiki" target="_blank">Wiki ФКН</a>
-            <a class="link" href="/lectures" target="_blank">Записи лекций</a>
-            <a class="link" href="/cpp" target="_blank">Курс по C++ (продвинутый)</a>
-            <a class="link" href="/caos" target="_blank">АКОС (ejudge)</a>
-            <a class="link" href="/pt-hw" target="_blank">Теория вероятностей (оценки по ДЗ)</a>
-            <a class="link" href="/ma-hw" target="_blank">Математический анализ (оценки по ДЗ)</a>
+            <div class="group">
+                <h2 class="group-name">Основное</h2>
+                <div class="group-list">
+                        <a class="link" href="/schedule" target="_blank">Расписание</a>
+                        <a class="link" href="/wiki" target="_blank">Wiki ФКН</a>
+                        <a class="link" href="/lectures" target="_blank">Записи лекций</a>
+                </div>
+            </div>
+            <div class="group">
+                <h2 class="group-name">Программирование</h2>
+                <div class="group-list">
+                        <a class="link" href="/cpp" target="_blank">Курс по C++ (продвинутый)</a>
+                        <a class="link" href="/caos" target="_blank">АКОС (ejudge)</a>
+                </div>
+            </div>
+            <div class="group">
+                <h2 class="group-name">Математика</h2>
+                <div class="group-list">
+                        <a class="link" href="/pt-hw" target="_blank">Теория вероятностей (оценки по ДЗ)</a>
+                        <a class="link" href="/ma-hw" target="_blank">Математический анализ (оценки по ДЗ)</a>
+                </div>
+            </div>
     </div>
 </div>
 </body>
